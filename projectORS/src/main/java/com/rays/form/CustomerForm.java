@@ -1,11 +1,10 @@
 package com.rays.form;
 
-import java.util.Date;
-
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
@@ -15,14 +14,16 @@ import com.rays.dto.InventoryDTO;
 public class CustomerForm extends BaseForm {
 
 	@Pattern(regexp = "^[a-zA-Z]+$", message = "Only alphabets are allowed")
+	@Size(max = 20, message = "Maximum 20 characters are allowed")
 	@NotEmpty(message = "please enter client name")
 	private String clientName;
 
 	@Pattern(regexp = "^[a-zA-Z]+$", message = "Only alphabets are allowed")
+	@Size(max = 20, message = "Maximum 20 characters are allowed")
 	@NotEmpty(message = "please enter location")
 	private String location;
 
-	@Digits(integer = 10, fraction = 0, message = "Only digits are allowed")
+	@Pattern(regexp = "^6\\d{9}$", message = "Contact number must start with 6 and be exactly 10 digits")
 	@NotNull(message = "Please enter contactNumber")
 	private Long contactNumber;
 

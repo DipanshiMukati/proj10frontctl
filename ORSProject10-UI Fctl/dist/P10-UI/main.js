@@ -528,6 +528,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customer_customer_list_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./customer/customer-list.component */ "./src/app/customer/customer-list.component.ts");
 /* harmony import */ var _staff_member_staff_member_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./staff-member/staff-member.component */ "./src/app/staff-member/staff-member.component.ts");
 /* harmony import */ var _staff_member_staff_member_list_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./staff-member/staff-member-list.component */ "./src/app/staff-member/staff-member-list.component.ts");
+/* harmony import */ var _dipanshi_dipanshi_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./dipanshi/dipanshi.component */ "./src/app/dipanshi/dipanshi.component.ts");
+/* harmony import */ var _dipanshi_dipanshilist_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./dipanshi/dipanshilist.component */ "./src/app/dipanshi/dipanshilist.component.ts");
 
 
 
@@ -587,7 +589,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // ✔️ Correct import
+
+
+
 function myHttpLoader(http) {
     return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_5__["TranslateHttpLoader"](http, './assets/i18n/', '.json');
 }
@@ -646,6 +650,8 @@ var AppModule = /** @class */ (function () {
                 _customer_customer_list_component__WEBPACK_IMPORTED_MODULE_57__["CustomerListComponent"],
                 _staff_member_staff_member_component__WEBPACK_IMPORTED_MODULE_58__["StaffMemberComponent"],
                 _staff_member_staff_member_list_component__WEBPACK_IMPORTED_MODULE_59__["StaffmemberlistComponent"],
+                _dipanshi_dipanshi_component__WEBPACK_IMPORTED_MODULE_60__["DipanshiComponent"],
+                _dipanshi_dipanshilist_component__WEBPACK_IMPORTED_MODULE_61__["DipanshilistComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -1468,7 +1474,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n\r\n<div class=\"content-wrapper\" \r\n     style=\"padding-top: 3%; padding-bottom: 15; \r\n            background: url(assets/files/back1.jpg) no-repeat center center; \r\n            background-attachment: fixed; \r\n            background-size: cover; \r\n            width: auto; \r\n            height: 90vh;\">\r\n  \r\n  <div class=\"container-fluid\">\r\n    <div class=\"panel panel-primary\">\r\n      <div class=\"panel-heading\" style=\"height: 50px;\">\r\n        <div class=\"text-center\">\r\n          <h1 class=\"text-primary font-weight-bold\">{{ 'Customer List' | translate }}</h1>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"row p-1\">\r\n        <div class=\"col-sm-1\"></div>\r\n\r\n        \r\n\r\n        <div class=\"col-sm-2\">\r\n          <input type=\"text\" class=\"form-control\" \r\n                 [(ngModel)]=\"form.searchParams.clientName\"\r\n                 placeholder=\"{{ 'Search clientName' | translate }}\">\r\n        </div>\r\n\r\n         <div class=\"col-sm-2\">\r\n          <input type=\"text\" class=\"form-control\" \r\n                 [(ngModel)]=\"form.searchParams.location\"\r\n                 placeholder=\"{{ 'Search location' | translate }}\">\r\n        </div>\r\n\r\n        <div class=\"col-sm-2\">\r\n          <input type=\"number\" class=\"form-control\" \r\n                 [(ngModel)]=\"form.searchParams.contactNumber\"\r\n                 placeholder=\"{{ 'Search contactNumber' | translate }}\">\r\n        </div>\r\n\r\n\r\n        <div class=\"col-sm-2\">\r\n          <select class=\"form-control\" name=\"importance\" \r\n                  [(ngModel)]=\"form.searchParams.importance\" \r\n                  aria-label=\"ngSelected\">\r\n              <option [ngValue]=\"\" value=\"undefined\">{{'Please select' | translate }}</option>\r\n                <option value=\"High\">{{'High' | translate }}</option>\r\n                <option value=\"Medium\">{{'Medium' | translate }}</option>\r\n                <option value=\"Low\">{{'Low' | translate }}</option> </select>\r\n        </div>\r\n\r\n\r\n        <div class=\"col-sm-1 ml-3\">\r\n          <button (click)=\"submit()\" class=\"btn btn-primary\">{{ 'Search' | translate }}</button>\r\n        </div>\r\n\r\n        <div class=\"col-sm-1\">\r\n          <button (click)=\"deleteMany()\" class=\"btn btn-danger\">{{ 'Delete' | translate }}</button>\r\n        </div>\r\n      </div>\r\n\r\n      <div *ngIf=\"form.error\" class=\"alert alert-danger alert-dismissible\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n        {{ form.message }}\r\n      </div>\r\n\r\n      <div *ngIf=\"!form.error && form.message != null\" class=\"alert alert-success alert-dismissible\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n        {{ form.message }}\r\n      </div>\r\n\r\n      <div class=\"p-1\">\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-bordered table-striped table-hover font-weight-bold text-primary\">\r\n            <thead class=\"thead-light text-uppercase\">\r\n              <tr>\r\n                <th>\r\n                  <input type=\"checkbox\" [(ngModel)]=\"isMasterSel\" (change)=\"checkUncheckAll($event)\" />\r\n                </th>\r\n                <th>{{ 'S.No' | translate }}</th>\r\n                <th>{{ 'ClientName' | translate }}</th>\r\n                <th>{{ 'Location' | translate }}</th>\r\n                <th>{{ 'ContactNumber' | translate }}</th>\r\n                <th>{{ 'Importance' | translate }}</th>\r\n                <th>{{ 'Edit' | translate }}</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let m of form.list; let i = index\">\r\n                <td>\r\n                  <input type=\"checkbox\" #checkboxes (change)=\"checklistUpdate()\" [id]=\"m.id\" />\r\n                </td>\r\n                <td>{{ (form.pageNo * 5) + i + 1 }}</td>\r\n                <td>{{ m.clientName }}</td>\r\n                <td>{{ m.location }}</td>\r\n                  <td>{{ m.contactNumber }}</td>\r\n                <td>{{ m.importance }}</td>\r\n                <td>\r\n                  <a (click)=\"forward('/customer/' + m.id)\" style=\"cursor: pointer;\">\r\n                    <i class=\"fa fa-edit text-info\"></i>\r\n                  </a>\r\n                  <!--\r\n                  <a (click)=\"delete(m.id)\" style=\"cursor: pointer;\">\r\n                    <i class=\"fa fa-trash text-danger\"></i>\r\n                  </a>\r\n                  -->\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n\r\n        <table style=\"width: 100%;\">\r\n          <tr>\r\n            <td style=\"width: 50%;\">\r\n              <button (click)=\"previous()\" [disabled]=\"form.pageNo == 0\" class=\"btn btn-info\">\r\n                {{ 'Previous' | translate }}\r\n              </button>\r\n            </td>\r\n\r\n            <td *ngIf=\"form.list.length != 0\" style=\"width: 50%;\"></td>\r\n\r\n            <td *ngIf=\"form.list.length == 0\" style=\"width: 50%;\">\r\n              <a class=\"btn btn-warning mr-1\" [routerLink]=\"['/customer-list']\" (click)=\"exit()\">\r\n                {{ 'Back' | translate }}\r\n              </a>\r\n            </td>\r\n\r\n            <td>\r\n              <button (click)=\"next()\" [disabled]=\"nextList == 0\" type=\"button\" class=\"btn btn-info\">\r\n                {{ 'Next' | translate }}\r\n              </button>\r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<app-footer></app-footer>"
+module.exports = "<app-navbar></app-navbar>\r\n\r\n<div class=\"content-wrapper\" \r\n     style=\"padding-top: 3%; padding-bottom: 15; \r\n            background: url(assets/files/back1.jpg) no-repeat center center; \r\n            background-attachment: fixed; \r\n            background-size: cover; \r\n            width: auto; \r\n            height: 90vh;\">\r\n  \r\n  <div class=\"container-fluid\">\r\n    <div class=\"panel panel-primary\">\r\n      <div class=\"panel-heading\" style=\"height: 50px;\">\r\n        <div class=\"text-center\">\r\n          <h1 class=\"text-primary font-weight-bold\">{{ 'Customer List' | translate }}</h1>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"row p-1\">\r\n        <div class=\"col-sm-1\"></div>\r\n\r\n        \r\n\r\n        <div class=\"col-sm-2\">\r\n          <input type=\"text\" class=\"form-control\" \r\n                 [(ngModel)]=\"form.searchParams.clientName\"\r\n                 placeholder=\"{{ 'Search clientName' | translate }}\">\r\n        </div>\r\n\r\n         <div class=\"col-sm-2\">\r\n          <input type=\"text\" class=\"form-control\" \r\n                 [(ngModel)]=\"form.searchParams.location\"\r\n                 placeholder=\"{{ 'Search location' | translate }}\">\r\n        </div>\r\n\r\n        <div class=\"col-sm-2\">\r\n          <input type=\"number\" class=\"form-control\" \r\n                 [(ngModel)]=\"form.searchParams.contactNumber\"\r\n                 placeholder=\"{{ 'Search contactNumber' | translate }}\">\r\n        </div>\r\n\r\n<div class=\"col-sm-2\">\r\n\r\n          <select class=\"form-control\" name=\"roleId\" [(ngModel)]=\"form.searchParams.importance\" aria-label=\"ngSelected\">\r\n            <option [ngValue]=\"\" value=\"undefined\">{{' Select Importance' | translate }}</option>\r\n            <option *ngFor=\"let obj of form.preload.custlist\" [value]=\"obj.key\">{{obj.value}}</option>\r\n          </select>\r\n        </div>\r\n        <!-- <div class=\"col-sm-2\">\r\n          <select class=\"form-control\" name=\"importance\" \r\n                  [(ngModel)]=\"form.searchParams.importance\" \r\n                  aria-label=\"ngSelected\">\r\n              <option [ngValue]=\"\" value=\"undefined\">{{'Please Importance' | translate }}</option>\r\n                <option value=\"High\">{{'High' | translate }}</option>\r\n                <option value=\"Medium\">{{'Medium' | translate }}</option>\r\n                <option value=\"Low\">{{'Low' | translate }}</option> </select>\r\n        </div> -->\r\n\r\n\r\n        <div class=\"col-sm-1 ml-3\">\r\n          <button (click)=\"submit()\" class=\"btn btn-primary\">{{ 'Search' | translate }}</button>\r\n        </div>\r\n\r\n        <div class=\"col-sm-1\">\r\n          <button (click)=\"deleteMany()\" class=\"btn btn-danger\">{{ 'Delete' | translate }}</button>\r\n        </div>\r\n      </div>\r\n\r\n      <div *ngIf=\"form.error\" class=\"alert alert-danger alert-dismissible\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n        {{ form.message }}\r\n      </div>\r\n\r\n      <div *ngIf=\"!form.error && form.message != null\" class=\"alert alert-success alert-dismissible\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n        {{ form.message }}\r\n      </div>\r\n\r\n      <div class=\"p-1\">\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-bordered table-striped table-hover font-weight-bold text-primary\">\r\n            <thead class=\"thead-light text-uppercase\">\r\n              <tr>\r\n                <th>\r\n                  <input type=\"checkbox\" [(ngModel)]=\"isMasterSel\" (change)=\"checkUncheckAll($event)\" />\r\n                </th>\r\n                <th>{{ 'S.No' | translate }}</th>\r\n                <th>{{ 'ClientName' | translate }}</th>\r\n                <th>{{ 'Location' | translate }}</th>\r\n                <th>{{ 'ContactNumber' | translate }}</th>\r\n                <th>{{ 'Importance' | translate }}</th>\r\n                <th>{{ 'Edit' | translate }}</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let m of form.list; let i = index\">\r\n                <td>\r\n                  <input type=\"checkbox\" #checkboxes (change)=\"checklistUpdate()\" [id]=\"m.id\" />\r\n                </td>\r\n                <td>{{ (form.pageNo * 5) + i + 1 }}</td>\r\n                <td>{{ m.clientName }}</td>\r\n                <td>{{ m.location }}</td>\r\n                  <td>{{ m.contactNumber }}</td>\r\n                <td>{{ m.importance }}</td>\r\n                <td>\r\n                  <a (click)=\"forward('/customer/' + m.id)\" style=\"cursor: pointer;\">\r\n                    <i class=\"fa fa-edit text-info\"></i>\r\n                  </a>\r\n                  <!--\r\n                  <a (click)=\"delete(m.id)\" style=\"cursor: pointer;\">\r\n                    <i class=\"fa fa-trash text-danger\"></i>\r\n                  </a>\r\n                  -->\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n\r\n        <table style=\"width: 100%;\">\r\n          <tr>\r\n            <td style=\"width: 50%;\">\r\n              <button (click)=\"previous()\" [disabled]=\"form.pageNo == 0\" class=\"btn btn-info\">\r\n                {{ 'Previous' | translate }}\r\n              </button>\r\n            </td>\r\n\r\n            <td *ngIf=\"form.list.length != 0\" style=\"width: 50%;\"></td>\r\n\r\n            <td *ngIf=\"form.list.length == 0\" style=\"width: 50%;\">\r\n              <a class=\"btn btn-warning mr-1\" [routerLink]=\"['/customer-list']\" (click)=\"exit()\">\r\n                {{ 'Back' | translate }}\r\n              </a>\r\n            </td>\r\n\r\n            <td>\r\n              <button (click)=\"next()\" [disabled]=\"nextList == 0\" type=\"button\" class=\"btn btn-info\">\r\n                {{ 'Next' | translate }}\r\n              </button>\r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -1547,7 +1553,7 @@ module.exports = ".alertRedColor {\r\n    color: red;\r\n}\r\n/*# sourceMappingU
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n\r\n<style>\r\n  .grad {\r\n    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));\r\n    background-repeat: no-repeat;\r\n    background-size: 100%;\r\n    padding-bottom: 25px;\r\n  }\r\n\r\n  input.form-control,\r\n  select.form-control {\r\n    height: 42px !important;\r\n    font-size: 14px;\r\n  }\r\n\r\n  .input-group .input-group-text {\r\n    min-width: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    height: 42px;\r\n  }\r\n\r\n  .alertRedColor {\r\n    color: red;\r\n    font-size: 13px;\r\n  }\r\n</style>\r\n\r\n<div class=\"row\" style=\"padding-top: 7%; padding-bottom:15%;\r\nbackground: url(assets/files/wall.jpg) no-repeat center center;\r\nbackground-attachment: fixed;\r\nbackground-size: cover; width:auto; height: auto;\">\r\n\r\n  <div class=\"col-sm-4\"></div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"card\">\r\n      <div class=\"card-body shadow-lg grad\">\r\n        <form>\r\n          <h2 *ngIf=\"!form.data.id>0\" class=\"text-primary font-weight-bold text-center\">\r\n            {{'Add Customer' | translate }}\r\n          </h2>\r\n          <h2 *ngIf=\"form.data.id>0\" class=\"text-primary font-weight-bold text-center\">\r\n            {{'Update Customer' | translate }}\r\n          </h2>\r\n\r\n          <!-- Success/Error Messages -->\r\n          <div *ngIf=\"!form.error && form.message != null\" class=\"alert alert-success alert-dismissible\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            {{form.message}}\r\n          </div>\r\n          <div *ngIf=\"form.error && form.message != null\" class=\"alert alert-danger alert-dismissible\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            {{form.message}}\r\n          </div>\r\n\r\n          \r\n          <div class=\"form-group mt-3\">\r\n            <label><b>{{'ClientName' | translate }}</b></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-user grey-text\"></i></div>\r\n              </div>\r\n              <input type=\"text\" name=\"clientName\" [(ngModel)]=\"form.data.clientName\" class=\"form-control\"\r\n                placeholder=\"{{'Enter clientName' | translate }}\">\r\n            </div>\r\n            <span class=\"alertRedColor\">{{form.inputerror.clientName}}</span>\r\n          </div>\r\n\r\n         <div class=\"form-group mt-3\">\r\n            <label><b>{{'Location' | translate }}</b></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-user grey-text\"></i></div>\r\n              </div>\r\n              <input type=\"text\" name=\"location\" [(ngModel)]=\"form.data.location\" class=\"form-control\"\r\n                placeholder=\"{{'Enter location' | translate }}\">\r\n            </div>\r\n            <span class=\"alertRedColor\">{{form.inputerror.location}}</span>\r\n          </div>\r\n\r\n          <!-- Quantity -->\r\n          <div class=\"form-group mt-3\">\r\n            <label><b>{{ 'ContactNumber' | translate }}</b><span class=\"required-field\">*</span></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-phone grey-text\"></i></div>\r\n              </div>\r\n              <input type=\"text\" name=\"contactNumber\" [(ngModel)]=\"form.data.contactNumber\" class=\"form-control\"\r\n                placeholder=\"{{ 'Enter contactNumber' | translate }}\" maxlength=\"10\" (keypress)=\"validatePhone($event)\">\r\n            </div>\r\n            <span *ngIf=\"form.inputerror.contactNumber\" class=\"alertRedColor\">{{ form.inputerror.contactNumber }}</span>\r\n          </div>\r\n\r\n          <!-- Product -->\r\n          <div class=\"form-group mt-3\">\r\n            <label><b>{{'Importance' | translate }}</b></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-venus grey-text\"></i></div>\r\n              </div>\r\n              <select class=\"form-control\" name=\"importance\" [(ngModel)]=\"form.data.importance\">\r\n                <option [ngValue]=\"\" value=\"undefined\">{{'Please select' | translate }}</option>\r\n                <option value=\"High\">{{'High' | translate }}</option>\r\n                <option value=\"Medium\">{{'Medium' | translate }}</option>\r\n                <option value=\"Low\">{{'Low' | translate }}</option>\r\n              </select>\r\n            </div>\r\n            <span *ngIf=\"form.inputerror.importance\" class=\"alertRedColor\">\r\n              {{'Enter importance' | translate}}\r\n            </span>\r\n          </div>\r\n\r\n          <div class=\"row pt-3 pl-3 pb-3\">\r\n            <div class=\"pt-2\">\r\n              <button *ngIf=\"!form.data.id>0\" (click)=\"submit()\" class=\"btn btn-success mr-2\">\r\n                {{'Save' | translate }}</button>\r\n            </div>\r\n            <div class=\"pt-2\">\r\n              <button *ngIf=\"form.data.id>0\" (click)=\"submit()\" class=\"btn btn-success mr-2\">\r\n                {{'Update' | translate }}</button>\r\n            </div>\r\n\r\n            <div class=\"pl-3 pt-2\">\r\n              <button (click)=\"forward('/customer-list')\" class=\"btn btn-md btn-warning\">\r\n                {{'List' | translate }}</button>\r\n            </div>\r\n          </div>\r\n\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<app-footer></app-footer>\r\n"
+module.exports = "<app-navbar></app-navbar>\r\n\r\n<style>\r\n  .grad {\r\n    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));\r\n    background-repeat: no-repeat;\r\n    background-size: 100%;\r\n    padding-bottom: 25px;\r\n  }\r\n\r\n  input.form-control,\r\n  select.form-control {\r\n    height: 42px !important;\r\n    font-size: 14px;\r\n  }\r\n\r\n  .input-group .input-group-text {\r\n    min-width: 42px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    height: 42px;\r\n  }\r\n\r\n  .alertRedColor {\r\n    color: red;\r\n    font-size: 13px;\r\n  }\r\n</style>\r\n\r\n<div class=\"row\" style=\"padding-top: 7%; padding-bottom:15%;\r\nbackground: url(assets/files/wall.jpg) no-repeat center center;\r\nbackground-attachment: fixed;\r\nbackground-size: cover; width:auto; height: auto;\">\r\n\r\n  <div class=\"col-sm-4\"></div>\r\n  <div class=\"col-sm-4\">\r\n    <div class=\"card\">\r\n      <div class=\"card-body shadow-lg grad\">\r\n        <form>\r\n          <h2 *ngIf=\"!form.data.id>0\" class=\"text-primary font-weight-bold text-center\">\r\n            {{'Add Customer' | translate }}\r\n          </h2>\r\n          <h2 *ngIf=\"form.data.id>0\" class=\"text-primary font-weight-bold text-center\">\r\n            {{'Update Customer' | translate }}\r\n          </h2>\r\n\r\n          <!-- Success/Error Messages -->\r\n          <div *ngIf=\"!form.error && form.message != null\" class=\"alert alert-success alert-dismissible\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            {{form.message}}\r\n          </div>\r\n          <div *ngIf=\"form.error && form.message != null\" class=\"alert alert-danger alert-dismissible\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            {{form.message}}\r\n          </div>\r\n\r\n\r\n          <div class=\"form-group mt-3\">\r\n            <label><b>{{'ClientName' | translate }}</b></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-user grey-text\"></i></div>\r\n              </div>\r\n              <input type=\"text\" name=\"clientName\" [(ngModel)]=\"form.data.clientName\" class=\"form-control\"\r\n                placeholder=\"{{'Enter clientName' | translate }}\">\r\n            </div>\r\n            <span class=\"alertRedColor\">{{form.inputerror.clientName}}</span>\r\n          </div>\r\n\r\n          <div class=\"form-group mt-3\">\r\n            <label><b>{{'Location' | translate }}</b></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-user grey-text\"></i></div>\r\n              </div>\r\n              <input type=\"text\" name=\"location\" [(ngModel)]=\"form.data.location\" class=\"form-control\"\r\n                placeholder=\"{{'Enter location' | translate }}\">\r\n            </div>\r\n            <span class=\"alertRedColor\">{{form.inputerror.location}}</span>\r\n          </div>\r\n\r\n          <!-- ContactNumber -->\r\n          <div class=\"form-group mt-3\">\r\n            <label><b>{{ 'ContactNumber' | translate }}</b><span class=\"required-field\"></span></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-phone grey-text\"></i></div>\r\n              </div>\r\n              <input type=\"text\" name=\"contactNumber\" [(ngModel)]=\"form.data.contactNumber\" class=\"form-control\"\r\n                placeholder=\"{{ 'Enter contactNumber' | translate }}\" maxlength=\"10\" (keypress)=\"validatePhone($event)\">\r\n            </div>\r\n            <span *ngIf=\"form.inputerror.contactNumber\" class=\"alertRedColor\">{{ form.inputerror.contactNumber }}</span>\r\n          </div>\r\n\r\n          <!-- Importance -->\r\n          <div class=\"form-group mt-3\">\r\n            <label><b>{{'Importance' | translate }}</b></label>\r\n            <div class=\"input-group\">\r\n              <div class=\"input-group-prepend\">\r\n                <div class=\"input-group-text\"><i class=\"fa fa-venus grey-text\"></i></div>\r\n              </div>\r\n              <select class=\"form-control\" name=\"importance\" [(ngModel)]=\"form.data.importance\">\r\n                <option [ngValue]=\"\" value=\"undefined\">{{'Please select' | translate }}</option>\r\n                <option value=\"High\">{{'High' | translate }}</option>\r\n                <option value=\"Medium\">{{'Medium' | translate }}</option>\r\n                <option value=\"Low\">{{'Low' | translate }}</option>\r\n              </select>\r\n            </div>\r\n            <span *ngIf=\"form.inputerror.importance\" class=\"alertRedColor\">\r\n              {{'Enter importance' | translate}}\r\n            </span>\r\n          </div>\r\n\r\n          <div class=\"row pt-3 pl-3 pb-3\">\r\n            <div class=\"pt-2\">\r\n              <button *ngIf=\"!form.data.id>0\" (click)=\"submit()\" class=\"btn btn-success mr-2\">\r\n                {{'Save' | translate }}</button>\r\n            </div>\r\n            <div class=\"pt-2\">\r\n              <button *ngIf=\"form.data.id>0\" (click)=\"submit()\" class=\"btn btn-success mr-2\">\r\n                {{'Update' | translate }}</button>\r\n            </div>\r\n\r\n            <div class=\"pl-3 pt-2\">\r\n              <button (click)=\"forward('/customer-list')\" class=\"btn btn-md btn-warning\">\r\n                {{'List' | translate }}</button>\r\n            </div>\r\n            <div class=\"pl-3 pt-2\">\r\n              <button (click)=\"exit()\" class=\"btn btn-warning mr-1\">{{'Reset' | translate}}</button>\r\n\r\n            </div>\r\n          </div>\r\n\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -1590,6 +1596,9 @@ var CustomerComponent = /** @class */ (function (_super) {
         flag = flag && validator.isNotNullObject(form.contactNumber);
         flag = flag && validator.isNotNullObject(form.importance);
         return flag;
+    };
+    CustomerComponent.prototype.exit = function () {
+        location.reload();
     };
     CustomerComponent.prototype.populateForm = function (form, data) {
         form.id = data.id;
@@ -1672,6 +1681,118 @@ var DashboardComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], DashboardComponent);
     return DashboardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dipanshi/dipanshi.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/dipanshi/dipanshi.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RpcGFuc2hpL2RpcGFuc2hpLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/dipanshi/dipanshi.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/dipanshi/dipanshi.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  dipanshi works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/dipanshi/dipanshi.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/dipanshi/dipanshi.component.ts ***!
+  \************************************************/
+/*! exports provided: DipanshiComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DipanshiComponent", function() { return DipanshiComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var DipanshiComponent = /** @class */ (function () {
+    function DipanshiComponent() {
+    }
+    DipanshiComponent.prototype.ngOnInit = function () {
+    };
+    DipanshiComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-dipanshi',
+            template: __webpack_require__(/*! ./dipanshi.component.html */ "./src/app/dipanshi/dipanshi.component.html"),
+            styles: [__webpack_require__(/*! ./dipanshi.component.css */ "./src/app/dipanshi/dipanshi.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], DipanshiComponent);
+    return DipanshiComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dipanshi/dipanshilist.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/dipanshi/dipanshilist.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RpcGFuc2hpL2RpcGFuc2hpbGlzdC5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/dipanshi/dipanshilist.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/dipanshi/dipanshilist.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  dipanshilist works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/dipanshi/dipanshilist.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/dipanshi/dipanshilist.component.ts ***!
+  \****************************************************/
+/*! exports provided: DipanshilistComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DipanshilistComponent", function() { return DipanshilistComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var DipanshilistComponent = /** @class */ (function () {
+    function DipanshilistComponent() {
+    }
+    DipanshilistComponent.prototype.ngOnInit = function () {
+    };
+    DipanshilistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-dipanshilist',
+            template: __webpack_require__(/*! ./dipanshilist.component.html */ "./src/app/dipanshi/dipanshilist.component.html"),
+            styles: [__webpack_require__(/*! ./dipanshilist.component.css */ "./src/app/dipanshi/dipanshilist.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], DipanshilistComponent);
+    return DipanshilistComponent;
 }());
 
 

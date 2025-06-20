@@ -27,7 +27,7 @@ public class CustomerCtl extends BaseCtl<CustomerForm, CustomerDTO, CustomerServ
 		ORSResponse res = new ORSResponse(true);
 		CustomerDTO dto = new CustomerDTO();
 		List<DropdownList> list = customerService.search(dto, userContext);
-		res.addResult("inlist", list);
+		res.addResult("custlist", list);
 		return res;
 	}
 }
