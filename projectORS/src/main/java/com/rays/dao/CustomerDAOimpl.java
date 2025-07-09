@@ -15,7 +15,7 @@ import com.rays.dto.CustomerDTO;
 
 
 @Repository
-public class CustomerDAOimpl extends BaseDAOImpl<CustomerDTO> implements CustomerDAOInt {
+public class CustomerDAOImpl extends BaseDAOImpl<CustomerDTO> implements CustomerDAOInt {
 
 	@Override
 	protected List<Predicate> getWhereClause(CustomerDTO dto, CriteriaBuilder builder, Root<CustomerDTO> qRoot) {
@@ -31,9 +31,9 @@ public class CustomerDAOimpl extends BaseDAOImpl<CustomerDTO> implements Custome
 			whereCondition.add(builder.like(qRoot.get("location"), dto.getLocation() + "%"));
 		}
 		
-		if (!isZeroNumber(dto.getContactNumber())) {
+		if (!isEmptyString(dto.getContactNumber())) {
 
-			whereCondition.add(builder.equal(qRoot.get("contactNumber"), dto.getContactNumber()));
+			whereCondition.add(builder.like(qRoot.get("contactNumber"), dto.getContactNumber()));
 		}
 
 		if (!isEmptyString(dto.getImportance())) {

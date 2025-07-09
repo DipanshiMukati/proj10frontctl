@@ -1,6 +1,5 @@
 package com.rays.dto;
 
-import java.util.Date;
 import java.util.LinkedHashMap;
 
 import javax.persistence.Column;
@@ -9,23 +8,22 @@ import javax.persistence.Table;
 
 import com.rays.common.BaseDTO;
 
-
 @Entity
 @Table(name = "ST_CUSTOMER")
 public class CustomerDTO extends BaseDTO {
 
 	@Column(name = "CLIENT_NAME", length = 50)
 	private String clientName;
-	
+
 	@Column(name = "LOCATION", length = 50)
 	private String location;
-	
+
 	@Column(name = "CONTACT_NUMBER")
-	private Long contactNumber;
-	
-	@Column(name = "IMPORTANCE")
+	private String contactNumber;
+
+	@Column(name = "IMPORTANCE", length = 50)
 	private String importance;
-    
+
 	public String getClientName() {
 		return clientName;
 	}
@@ -42,11 +40,11 @@ public class CustomerDTO extends BaseDTO {
 		this.location = location;
 	}
 
-	public Long getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(Long contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
@@ -59,45 +57,44 @@ public class CustomerDTO extends BaseDTO {
 	}
 
 	public String getKey() {
-		return importance;
+		return id + "";
 	}
-	
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return importance;
+		return clientName;
 	}
 
 	@Override
 	public String getUniqueKey() {
-		// TODO Auto-generated method stub
-		return "clientName";
+		return "clientName"; // ya koi bhi unique field
 	}
 
 	@Override
 	public String getUniqueValue() {
-		// TODO Auto-generated method stub
 		return clientName;
 	}
 
 	@Override
 	public String getLabel() {
 		// TODO Auto-generated method stub
-		return clientName;
+		return "Client Name";
 	}
 
 	@Override
 	public LinkedHashMap<String, String> orderBY() {
 		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
 		map.put("clientName", "asc");
-		
+
 		return map;
 	}
 
 	@Override
 	public LinkedHashMap<String, Object> uniqueKeys() {
 		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
-		map.put("importance", importance);
+		map.put("clientName", clientName);
 		return map;
 	}
+
 }

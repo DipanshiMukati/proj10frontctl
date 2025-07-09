@@ -1,4 +1,3 @@
-
 package com.rays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +45,7 @@ public class ProjectOrsApplication extends SpringBootServletInitializer {
 
 			/**
 			 * Add CORS
-			 * 
+			 *   
 			 */
 			public void addCorsMappings(CorsRegistry registry) {
 				CorsRegistration cors = registry.addMapping("/**");
