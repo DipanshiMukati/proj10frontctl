@@ -107,9 +107,8 @@ background-size: cover; width:auto; height: auto;">
                 <option value="Low">{{'Low' | translate }}</option>
               </select>
             </div>
-            <span *ngIf="form.inputerror.importance" class="alertRedColor">
-              {{'Enter importance' | translate}}
-            </span>
+            <span *ngIf="form.inputerror?.importance" class="alertRedColor">{{ form.inputerror.importance }}</span>
+
           </div>
 
           <div class="row pt-3 pl-3 pb-3">
@@ -126,10 +125,10 @@ background-size: cover; width:auto; height: auto;">
               <button (click)="forward('/customer-list')" class="btn btn-md btn-warning">
                 {{'List' | translate }}</button>
             </div>
-            <div class="pl-3 pt-2">
+            <!-- <div class="pl-3 pt-2">
               <button (click)="exit()" class="btn btn-warning mr-1">{{'Reset' | translate}}</button>
 
-            </div>
+            </div> -->
           </div>
 
         </form>
