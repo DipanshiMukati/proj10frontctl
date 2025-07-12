@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 8677795785b7a2aff59cdad239ed1e3ae7fe7cd1
 package com.rays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +45,7 @@ public class ProjectOrsApplication extends SpringBootServletInitializer {
 
 			/**
 			 * Add CORS
-<<<<<<< HEAD
 			 *   
-=======
-			 * 
->>>>>>> 8677795785b7a2aff59cdad239ed1e3ae7fe7cd1
 			 */
 			public void addCorsMappings(CorsRegistry registry) {
 				CorsRegistration cors = registry.addMapping("/**");
@@ -72,6 +64,7 @@ public class ProjectOrsApplication extends SpringBootServletInitializer {
 				registry.addInterceptor(frontCtl).addPathPatterns("/**").excludePathPatterns("/Auth/**","/User/profilePic/**");
 			}
 
+			
 			/*
 			 * @Override public void addResourceHandlers(ResourceHandlerRegistry registry) {
 			 * registry.addResourceHandler("/**").addResourceLocations("classpath:/public/")

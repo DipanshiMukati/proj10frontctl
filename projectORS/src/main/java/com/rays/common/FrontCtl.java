@@ -27,6 +27,7 @@ public class FrontCtl extends HandlerInterceptorAdapter {
 
 		System.out.println("1111");
 
+		//CURRENT SESSION KO GET KARTA HAI 
 		HttpSession session = request.getSession();
 
 		System.out.println("FrontCTl id => " + session.getId());

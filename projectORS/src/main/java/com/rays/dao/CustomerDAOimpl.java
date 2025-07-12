@@ -1,6 +1,7 @@
+
 package com.rays.dao;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -12,14 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.rays.common.BaseDAOImpl;
 import com.rays.dto.CustomerDTO;
 
-
-
 @Repository
-<<<<<<< HEAD
 public class CustomerDAOImpl extends BaseDAOImpl<CustomerDTO> implements CustomerDAOInt {
-=======
-public class CustomerDAOimpl extends BaseDAOImpl<CustomerDTO> implements CustomerDAOInt {
->>>>>>> 8677795785b7a2aff59cdad239ed1e3ae7fe7cd1
 
 	@Override
 	protected List<Predicate> getWhereClause(CustomerDTO dto, CriteriaBuilder builder, Root<CustomerDTO> qRoot) {
@@ -34,24 +29,21 @@ public class CustomerDAOimpl extends BaseDAOImpl<CustomerDTO> implements Custome
 
 			whereCondition.add(builder.like(qRoot.get("location"), dto.getLocation() + "%"));
 		}
-		
-<<<<<<< HEAD
-		if (!isEmptyString(dto.getContactNumber())) {
 
-			whereCondition.add(builder.like(qRoot.get("contactNumber"), dto.getContactNumber()));
-=======
-		if (!isZeroNumber(dto.getContactNumber())) {
+		if (isNotNull(dto.getContactNumber())){
 
 			whereCondition.add(builder.equal(qRoot.get("contactNumber"), dto.getContactNumber()));
->>>>>>> 8677795785b7a2aff59cdad239ed1e3ae7fe7cd1
+		}
+
+		if (!isEmptyString(dto.getLocation())) {
+
+			whereCondition.add(builder.like(qRoot.get("location"), dto.getLocation() + "%"));
 		}
 
 		if (!isEmptyString(dto.getImportance())) {
 
-			whereCondition.add(builder.like(qRoot.get("importance"), dto.getImportance() + "%"));
+			whereCondition.add(builder.equal(qRoot.get("importance"), dto.getImportance()));
 		}
-
-		
 
 		return whereCondition;
 	}
@@ -59,7 +51,7 @@ public class CustomerDAOimpl extends BaseDAOImpl<CustomerDTO> implements Custome
 	@Override
 	public Class<CustomerDTO> getDTOClass() {
 		// TODO Auto-generated method stub
-				return CustomerDTO.class;
+		return CustomerDTO.class;
 	}
 
 }

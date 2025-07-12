@@ -23,6 +23,7 @@ com\rays\service\UserServiceImpl.class
 com\rays\ctl\JasperCtl.class
 com\rays\form\UserRegistrationForm.class
 com\rays\dao\UserDAOImpl.class
+com\rays\form\CompensationForm.class
 com\rays\form\PositionForm.class
 com\rays\service\MarksheetServiceImpl.class
 com\rays\common\message\MessageCtl.class
@@ -30,6 +31,8 @@ com\rays\ctl\CollegeCtl.class
 com\rays\common\attachment\AttachmentForm.class
 com\rays\dao\SubjectDAOImpl.class
 com\rays\form\RoleForm.class
+com\rays\form\StaffMemberForm.class
+com\rays\service\CompensationServiceInt.class
 com\rays\service\SubjectServiceImpl.class
 com\rays\ctl\FacultyCtl.class
 com\rays\common\BaseForm.class
@@ -57,11 +60,16 @@ com\rays\dao\RoleDAOInt.class
 com\rays\common\attachment\AttachmentBaseDTO.class
 com\rays\service\CollegeServiceInt.class
 com\rays\dto\FacultyDTO.class
+com\rays\dao\CompensationDAOInt.class
 com\rays\common\mail\EmailServiceImpl$1.class
 com\rays\ctl\CourseCtl.class
+com\rays\service\StaffMemberServiceInt.class
 com\rays\dao\InventoryDAOInt.class
+com\rays\dao\OrderDAOInt.class
+com\rays\ctl\CompensationCtl.class
 com\rays\dto\CustomerDTO.class
 com\rays\dto\PrescriptionDTO.class
+com\rays\service\StaffMemberServiceImpl.class
 com\rays\dto\CourseDTO.class
 com\rays\form\StudentForm.class
 com\rays\common\BaseServiceInt.class
@@ -70,6 +78,8 @@ com\rays\ctl\SubjectCtl.class
 com\rays\dao\CollegeDAOInt.class
 com\rays\dto\InventoryDTO.class
 com\rays\service\CollegeServiceImpl.class
+com\rays\dao\StaffMemberDAOInt.class
+com\rays\service\CompensationServiceImpl.class
 com\rays\service\ProductServiceImpl.class
 com\rays\config\WebSecurityConfig.class
 com\rays\ctl\InventoryCtl.class
@@ -82,7 +92,9 @@ com\rays\common\BaseCtl.class
 com\rays\ctl\LoginCtl.class
 com\rays\service\CourseServiceInt.class
 com\rays\common\message\MessageDTO.class
+com\rays\service\OrderServiceInt.class
 com\rays\dao\SubjectDAOInt.class
+com\rays\dto\CompensationDTO.class
 com\rays\form\CollegeForm.class
 com\rays\dao\PositionDAOImpl.class
 com\rays\service\StudentServiceInt.class
@@ -93,6 +105,8 @@ com\rays\service\UserServiceInt.class
 com\rays\common\attachment\AttachmentServiceInt.class
 com\rays\form\FacultyForm.class
 com\rays\dto\ProductDTO.class
+com\rays\dto\OrderDTO.class
+com\rays\dao\OrderDAOImpl.class
 com\rays\form\LoginForm.class
 com\rays\ctl\UserCtl.class
 com\rays\ctl\TimeTableCtl.class
@@ -120,12 +134,16 @@ com\rays\exception\ApplicationException.class
 com\rays\common\mail\EmailServiceImpl.class
 com\rays\ctl\StudentCtl.class
 com\rays\ctl\ProjectCtl.class
+com\rays\dao\StaffMemberDAOImpl.class
 com\rays\form\MyProfileForm.class
 com\rays\dao\PositionDAOInt.class
+com\rays\ctl\StaffMemberCtl.class
 com\rays\dao\TimeTableDAOImpl.class
 com\rays\ctl\PositionCtl.class
+com\rays\dao\CustomerDAOImpl.class
 com\rays\exception\DuplicateRecordException.class
 com\rays\common\BaseServiceImpl.class
+com\rays\form\OrderForm.class
 com\rays\common\UserContext.class
 com\rays\dao\PatientDAOImpl.class
 com\rays\service\ProjectServiceImpl.class
@@ -135,6 +153,9 @@ com\rays\dto\UserDTO.class
 com\rays\form\ProjectForm.class
 com\rays\dto\CollegeDTO.class
 com\rays\form\ChangePasswordForm.class
+com\rays\dto\StaffMemberDTO.class
+com\rays\ctl\OrderCtl.class
+com\rays\dao\CompensationDAOImpl.class
 com\rays\dto\ProjectDTO.class
 com\rays\form\CustomerForm.class
 com\rays\service\FacultyServiceInt.class
@@ -151,7 +172,7 @@ com\rays\dao\ProductDAOImpl.class
 com\rays\common\ApplicationExceptionHandlerCtl.class
 com\rays\form\TimeTableForm.class
 com\rays\common\attachment\AttachmentDTO.class
-com\rays\dao\CustomerDAOimpl.class
+com\rays\service\OrderServiceImpl.class
 com\rays\form\SubjectForm.class
 com\rays\dao\ProjectDAOImpl.class
 com\rays\common\message\MessageServiceInt.class

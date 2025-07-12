@@ -34,19 +34,19 @@
         </div>
 
         <div class="col-sm-2">
-          <input type="number" class="form-control" 
+          <input type="text" class="form-control" 
                  [(ngModel)]="form.searchParams.contactNumber"
                  placeholder="{{ 'Search contactNumber' | translate }}">
         </div>
 
-<div class="col-sm-2">
+<!-- <div class="col-sm-2">
 
           <select class="form-control" name="roleId" [(ngModel)]="form.searchParams.importance" aria-label="ngSelected">
             <option [ngValue]="" value="undefined">{{' Select Importance' | translate }}</option>
-            <option *ngFor="let obj of form.preload.custlist" [value]="obj.key">{{obj.value}}</option>
+            <option *ngFor="let obj of form.preload.customerlist" [value]="obj.key">{{obj.value}}</option>
           </select>
-        </div>
-        <!-- <div class="col-sm-2">
+        </div> -->
+        <div class="col-sm-2">
           <select class="form-control" name="importance" 
                   [(ngModel)]="form.searchParams.importance" 
                   aria-label="ngSelected">
@@ -54,7 +54,7 @@
                 <option value="High">{{'High' | translate }}</option>
                 <option value="Medium">{{'Medium' | translate }}</option>
                 <option value="Low">{{'Low' | translate }}</option> </select>
-        </div> -->
+        </div> 
 
 
         <div class="col-sm-1 ml-3">
